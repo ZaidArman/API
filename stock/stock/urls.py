@@ -22,4 +22,6 @@ urlpatterns = [
     path('Stock',StockAPI.as_view(), name="StockAPI"),
     path('Transection',TransectionAPI.as_view(), name="TransectionAPI"),
     path('Valuation',StockAPI.as_view(), name="ValuationAPI"),
+    #create_API
+    path('StockCreate',StockCreateAPIView.as_view(), name="StockCreate"),
 ]

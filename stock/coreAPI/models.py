@@ -4,16 +4,17 @@ from django.db import models
 
 class STOCK(models.Model):
     name = models.CharField(max_length=10)
-    cost = models.FloatField()
+    price = models.IntegerField()
+    change = models.FloatField(blank=True, null=True)
     
     def __str__(self):
         return self.name
     
 
-class InsideTransection(models.Model):
+class InsideTransaction(models.Model):
     name = models.CharField(max_length=10)
-    stock = models.ManyToManyField(STOCK, related_name='Transection')
-    price = models.IntegerField()
+    stock = models.ForeignKey(STOCK, on_delete=models.CASCADE, related_name='Transaction')
+    cost = models.FloatField()
     # change = models.FloatField()
     
     def __str__(self):
@@ -25,5 +26,5 @@ class Valuation(models.Model):
     pe_ratio = models.FloatField()
     
     def __str__(self):
-        return self.market_cap
+        return self.stock.name
     

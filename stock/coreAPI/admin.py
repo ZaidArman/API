@@ -4,4 +4,4 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register([STOCK, InsideTransection, Valuation])
+admin.site.register([STOCK, InsideTransaction, Valuation])
